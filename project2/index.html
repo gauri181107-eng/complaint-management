@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineBook Interactive App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">JavaScript and DOM mini project</p>
+    <h1>CineBook Seat Selector</h1>
+    <p>Select a movie, choose seats and create a browser-side booking.</p>
+  </header>
+
+  <main class="page-shell">
+    <section class="panel">
+      <p class="eyebrow">Rendered by JavaScript</p>
+      <h2>1. Choose a movie</h2>
+      <div id="movieGrid" class="movie-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Events and state</p>
+          <h2>2. Choose seats</h2>
+        </div>
+        <button id="clearSeatsButton" class="secondary-button" type="button">Clear seats</button>
+      </div>
+      <div class="screen">SCREEN</div>
+      <div id="seatGrid" class="seat-grid"></div>
+    </section>
+
+    <section class="panel booking-layout">
+      <form id="bookingForm" class="booking-form">
+        <div>
+          <p class="eyebrow">Form submit event</p>
+          <h2>3. Enter customer details</h2>
+        </div>
+
+        <label for="customerName">Full name</label>
+        <input id="customerName" type="text" required>
+
+        <label for="customerEmail">Email address</label>
+        <input id="customerEmail" type="email" required>
+
+        <label for="showTime">Show time</label>
+        <select id="showTime" required>
+          <option value="">Choose a show</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="2:30 PM">2:30 PM</option>
+          <option value="6:30 PM">6:30 PM</option>
+        </select>
+
+        <button class="primary-button" type="submit">Create browser booking</button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+
+      <aside class="summary-card">
+        <p class="eyebrow">Current state</p>
+        <h2>Booking summary</h2>
+        <p><strong>Movie:</strong> <span id="summaryMovie">Not selected</span></p>
+        <p><strong>Seats:</strong> <span id="summarySeats">None</span></p>
+        <p><strong>Total:</strong> <span id="summaryTotal">Rs. 0</span></p>
+        <div id="bookingResult" class="booking-result"></div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

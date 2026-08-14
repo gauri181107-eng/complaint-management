@@ -1,0 +1,224 @@
+/* RESET & VARIABLE DEFINITIONS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #d4af37;
+  --bg-dark: #121212;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --text-main: #f5f5f5;
+  --text-muted: #a0a0a0;
+  --font-family: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-speed: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: var(--font-family);
+  text-align: center;
+  font-size: 2.75rem;
+  margin-bottom: 2.5rem;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--primary-color);
+  margin: 0.75rem auto 0;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #121212;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+              url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4') center/cover no-repeat fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.hero h1 {
+  font-family: var(--font-family);
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+/* MENU SECTION */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.menu-item {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-main);
+}
+
+.menu-header span:last-child {
+  color: var(--primary-color);
+}
+
+.menu-item p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* GALLERY SECTION */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: brightness(0.85);
+  transition: filter var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.gallery-grid img:hover {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+/* RESERVATION FORM */
+.reservation-form {
+  max-width: 550px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+}
+
+.form-group select option {
+  background-color: var(--bg-dark);
+  color: #fff;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  section { padding: 4rem 1.25rem; }
+  .hero h1 { font-size: 2.75rem; }
+  .hero p { font-size: 1rem; }
+  h2 { font-size: 2.25rem; }
+  .reservation-form { padding: 2rem 1.5rem; }
+}

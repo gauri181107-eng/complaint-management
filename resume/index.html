@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Application Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+  <h1>Internship Application</h1>
+  <p class="subtitle">Fill in your details below to apply</p>
+
+  <form id="internshipForm" novalidate>
+
+    <div class="form-group" id="group-fullName">
+      <label for="fullName">Full Name <span class="required">*</span></label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+      <span class="error-message">Please enter your full name.</span>
+    </div>
+
+    <div class="two-col">
+      <div class="form-group" id="group-email">
+        <label for="email">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <span class="error-message">Please enter a valid email address.</span>
+      </div>
+
+      <div class="form-group" id="group-phone">
+        <label for="phone">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit number" required>
+        <span class="error-message">Please enter a valid 10-digit phone number.</span>
+      </div>
+    </div>
+
+    <div class="form-group" id="group-college">
+      <label for="college">College Name <span class="required">*</span></label>
+      <input type="text" id="college" name="college" placeholder="Enter your college name" required>
+      <span class="error-message">Please enter your college name.</span>
+    </div>
+
+    <div class="two-col">
+      <div class="form-group" id="group-branch">
+        <label for="branch">Branch <span class="required">*</span></label>
+        <select id="branch" name="branch" required>
+          <option value="">-- Select Branch --</option>
+          <option value="CSE">Computer Science</option>
+          <option value="IT">Information Technology</option>
+          <option value="ECE">Electronics &amp; Communication</option>
+          <option value="EEE">Electrical &amp; Electronics</option>
+          <option value="Mech">Mechanical</option>
+          <option value="Civil">Civil</option>
+          <option value="Other">Other</option>
+        </select>
+        <span class="error-message">Please select your branch.</span>
+      </div>
+
+      <div class="form-group" id="group-year">
+        <label for="year">Year of Study <span class="required">*</span></label>
+        <select id="year" name="year" required>
+          <option value="">-- Select Year --</option>
+          <option value="1">1st Year</option>
+          <option value="2">2nd Year</option>
+          <option value="3">3rd Year</option>
+          <option value="4">4th Year</option>
+        </select>
+        <span class="error-message">Please select your year of study.</span>
+      </div>
+    </div>
+
+    <div class="form-group" id="group-skills">
+      <label for="skills">Skills <span class="required">*</span></label>
+      <textarea id="skills" name="skills" placeholder="e.g. HTML, CSS, JavaScript, Python..." required></textarea>
+      <span class="error-message">Please list at least one skill.</span>
+    </div>
+
+    <div class="form-group" id="group-role">
+      <label for="role">Preferred Internship Role <span class="required">*</span></label>
+      <select id="role" name="role" required>
+        <option value="">-- Select Role --</option>
+        <option value="Web Development">Web Development</option>
+        <option value="App Development">App Development</option>
+        <option value="Data Science">Data Science</option>
+        <option value="UI/UX Design">UI/UX Design</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Other">Other</option>
+      </select>
+      <span class="error-message">Please select a preferred role.</span>
+    </div>
+
+    <div class="form-group" id="group-why">
+      <label for="why">Why should we select you? <span class="required">*</span></label>
+      <textarea id="why" name="why" placeholder="Tell us about yourself in a few sentences..." required></textarea>
+      <span class="error-message">Please write at least 20 characters.</span>
+    </div>
+
+    <div class="form-group" id="group-resume">
+      <label for="resume">Resume Link <span class="required">*</span></label>
+      <input type="url" id="resume" name="resume" placeholder="https://drive.google.com/..." required>
+      <span class="error-message">Please enter a valid resume URL (must start with http:// or https://).</span>
+    </div>
+
+    <button type="submit">Submit Application</button>
+
+    <div id="successMessage">✅ Application submitted successfully! We'll get back to you soon.</div>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
