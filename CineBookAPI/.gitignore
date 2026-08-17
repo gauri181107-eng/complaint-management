@@ -1,1 +1,3 @@
 CineBookAPI/
+node_modules/
+.env
