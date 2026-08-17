@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PG Complaint Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <div class="logo-icon">🏠</div>
+
+                <div>
+                    <h1>PG Care</h1>
+                    <p>Complaint Management System</p>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <!-- Dashboard -->
+
+        <section class="dashboard">
+
+            <div class="stat-card">
+
+                <div class="stat-icon total-icon">
+                    📋
+                </div>
+
+                <div>
+                    <p>Total Complaints</p>
+                    <h2 id="totalComplaints">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon pending-icon">
+                    ⏳
+                </div>
+
+                <div>
+                    <p>Pending</p>
+                    <h2 id="pendingComplaints">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon progress-icon">
+                    🔧
+                </div>
+
+                <div>
+                    <p>In Progress</p>
+                    <h2 id="progressComplaints">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon resolved-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <p>Resolved</p>
+                    <h2 id="resolvedComplaints">0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= COMPLAINT FORM ================= -->
+
+        <section class="form-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Submit a Complaint</h2>
+
+                    <p>
+                        Report an issue with your room or PG facilities.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="complaintForm">
+
+                <div class="form-grid">
+
+                    <!-- Resident Name -->
+
+                    <div class="form-group">
+
+                        <label for="residentName">
+                            Resident Name <span>*</span>
+                        </label>
+
+                        <input type="text" id="residentName" placeholder="Enter your name">
+
+                        <small class="error" id="residentNameError"></small>
+
+                    </div>
+
+
+                    <!-- Room Number -->
+
+                    <div class="form-group">
+
+                        <label for="roomNumber">
+                            Room / Flat Number <span>*</span>
+                        </label>
+
+                        <input type="text" id="roomNumber" placeholder="Example: A-203">
+
+                        <small class="error" id="roomNumberError"></small>
+
+                    </div>
+
+
+                    <!-- Contact -->
+
+                    <div class="form-group">
+
+                        <label for="contact">
+                            Contact Number <span>*</span>
+                        </label>
+
+                        <input type="tel" id="contact" placeholder="10 digit mobile number" maxlength="10">
+
+                        <small class="error" id="contactError"></small>
+
+                    </div>
+
+
+                    <!-- Category -->
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Complaint Category <span>*</span>
+                        </label>
+
+                        <select id="category">
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Electricity">
+                                Electricity
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="Water Supply">
+                                Water Supply
+                            </option>
+
+                            <option value="Internet">
+                                Internet
+                            </option>
+
+                            <option value="Housekeeping">
+                                Housekeeping
+                            </option>
+
+                            <option value="Maintenance">
+                                Maintenance
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                        <small class="error" id="categoryError"></small>
+
+                    </div>
+
+
+                    <!-- Priority -->
+
+                    <div class="form-group">
+
+                        <label for="priority">
+                            Priority <span>*</span>
+                        </label>
+
+                        <select id="priority">
+
+                            <option value="">
+                                Select priority
+                            </option>
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option value="Medium">
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                        <small class="error" id="priorityError"></small>
+
+                    </div>
+
+
+                    <!-- Description -->
+
+                    <div class="form-group full-width">
+
+                        <label for="description">
+                            Description <span>*</span>
+                        </label>
+
+                        <textarea id="description" rows="4" placeholder="Describe the problem in detail..."></textarea>
+
+                        <small class="error" id="descriptionError"></small>
+
+                    </div>
+
+
+                    <!-- Additional Information -->
+
+                    <div class="form-group full-width">
+
+                        <label for="additionalInfo">
+                            Additional Information
+                        </label>
+
+                        <textarea id="additionalInfo" rows="3" placeholder="Any additional information..."></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="button" class="btn secondary-btn" id="clearBtn">
+                        Clear
+                    </button>
+
+                    <button type="submit" class="btn primary-btn">
+                        Submit Complaint
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= COMPLAINT LIST ================= -->
+
+        <section class="complaints-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>My Complaints</h2>
+
+                    <p>
+                        Track and manage your submitted complaints.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Search and filters -->
+
+            <div class="filter-container">
+
+                <div class="search-box">
+
+                    <span>🔍</span>
+
+                    <input type="text" id="searchInput" placeholder="Search complaints...">
+
+                </div>
+
+
+                <select id="categoryFilter">
+
+                    <option value="All">
+                        All Categories
+                    </option>
+
+                    <option value="Electricity">
+                        Electricity
+                    </option>
+
+                    <option value="Plumbing">
+                        Plumbing
+                    </option>
+
+                    <option value="Water Supply">
+                        Water Supply
+                    </option>
+
+                    <option value="Internet">
+                        Internet
+                    </option>
+
+                    <option value="Housekeeping">
+                        Housekeeping
+                    </option>
+
+                    <option value="Maintenance">
+                        Maintenance
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <select id="statusFilter">
+
+                    <option value="All">
+                        All Status
+                    </option>
+
+                    <option value="Pending">
+                        Pending
+                    </option>
+
+                    <option value="In Progress">
+                        In Progress
+                    </option>
+
+                    <option value="Resolved">
+                        Resolved
+                    </option>
+
+                    <option value="Cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+
+                <select id="priorityFilter">
+
+                    <option value="All">
+                        All Priority
+                    </option>
+
+                    <option value="Low">
+                        Low
+                    </option>
+
+                    <option value="Medium">
+                        Medium
+                    </option>
+
+                    <option value="High">
+                        High
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Complaint cards -->
+
+            <div id="complaintsContainer">
+
+                <div class="empty-state">
+
+                    <div>📋</div>
+
+                    <h3>No complaints yet</h3>
+
+                    <p>
+                        Submit your first complaint using the form above.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="detailsModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2>Complaint Details</h2>
+
+                <button class="close-btn" id="closeModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= EDIT MODAL ================= -->
+
+    <div class="modal-overlay" id="editModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <h2>Edit Complaint</h2>
+
+                <button class="close-btn" id="closeEditModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editForm">
+
+                <input type="hidden" id="editComplaintId">
+
+
+                <div class="form-group">
+
+                    <label for="editDescription">
+                        Description
+                    </label>
+
+                    <textarea id="editDescription" rows="4"></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPriority">
+                        Priority
+                    </label>
+
+                    <select id="editPriority">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAdditionalInfo">
+                        Additional Information
+                    </label>
+
+                    <textarea id="editAdditionalInfo" rows="3"></textarea>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button type="button" class="btn secondary-btn" id="cancelEdit">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="btn primary-btn">
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+    
+
+</body>
+
+</html>
